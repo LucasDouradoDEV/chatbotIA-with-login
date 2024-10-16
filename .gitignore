@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+/htaccess-config
 
 # Node
 /node_modules
