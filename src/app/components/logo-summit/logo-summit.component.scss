@@ -1,0 +1,11 @@
+.logo-summit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        display: block;
+        object-fit: contain;
+        object-position: center;
+    }
+}

@@ -1,0 +1,67 @@
+@import '../../../assets/utilities/variables.scss';
+
+.card {
+    display: block;
+    border-radius: 8px;
+    background: $newton-white;
+    border-radius: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: .3s ease all;
+
+    &:hover {
+        background-color: $global-color-neutral-30;
+    }
+
+    .card__content {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        gap: 12px;
+    }
+
+    .card-icon svg{
+        display: block;
+        width: 32px;
+        height: 32px
+    }
+
+    .card-text {
+        flex: 1;
+    }
+
+    .card-title {
+        margin: 0;
+        color: $global-color-primary;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.2em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .card-status {
+            display: flex;
+            padding: 4px 12px;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 16px;
+            background: $global-color-neutral-700;
+
+            color: $newton-white;
+            text-align: center;
+            font-size: 10px;
+            line-height: 1.2em;
+        }
+    }
+
+    .card-lead {
+        margin: 4px 0 0 0;
+        color: $global-color-neutral-800;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.2em;
+    }
+}

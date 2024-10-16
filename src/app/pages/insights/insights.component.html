@@ -1,0 +1,19 @@
+<app-header></app-header>
+<app-sidebar title="Insights da Palestra"></app-sidebar>
+
+<section class="section section_insights">
+    <div class="container">
+        <div class="insights-list">
+            
+            @if(listInsights){
+                @for (item of listInsights; track item) {
+                    <app-insight
+                        horario="{{item.horario}}"
+                        title="{{item.title}}"
+                        lead="{{item.lead}}"
+                    />
+                }
+            }
+        </div>
+    </div>
+</section>

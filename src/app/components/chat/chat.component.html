@@ -1,0 +1,67 @@
+<section class="section section-chat">
+    <div class="container">
+        <div class="chat-messages" id="chat-messages">
+            <ul class="chat" id="chat">
+                @if(messages.length > 0){
+                    @for (item of messages; track item) {
+                        @if(item.role != "system"){
+                            <li class="chat-item chat-{{item.role}}">
+                                @if(item.role == 'assistant'){
+                                    <span class="chat-item__icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M12.1369 9.47019L16.6169 12.3352L16.5819 16.6552C16.5669 18.6502 14.9419 20.2602 12.9469 20.2602H12.6869C11.8019 20.2602 10.9369 19.9352 10.3119 19.3102C10.0869 19.0852 9.90191 18.8352 9.77191 18.5752M5.49692 13.6602C4.65692 14.4102 4.48191 15.6702 5.10191 16.6302L5.61191 17.4152C6.54691 18.8552 8.43691 19.3252 9.93691 18.4952L14.1019 16.1902V10.8152M14.1069 13.5202L9.42192 16.0052L5.71192 13.7952C3.46692 12.4602 3.42191 9.22519 5.63191 7.82519L7.27692 6.78019M11.8669 14.7052L9.66191 13.3902L7.08691 11.8502L7.19192 7.46019C7.23692 5.52019 8.83191 3.98019 10.7719 4.00019L12.1669 4.01519C13.0769 4.02519 13.8169 4.74519 13.8519 5.65019M18.5919 10.5902C19.3219 9.82019 19.4019 8.61019 18.7219 7.75519L17.8169 6.61019C16.8669 5.40019 15.2169 5.02519 13.8469 5.65519C13.7369 5.70519 13.6319 5.76019 13.5269 5.82519L9.66191 8.14019V13.4002M9.66191 10.9152L14.4769 8.13019L18.3619 10.4402C19.8369 11.3152 20.4069 13.1652 19.6919 14.7202L19.0569 16.0952C18.6219 17.0452 17.5219 17.4902 16.5469 17.1102" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </span>
+                                }
+                                <div class="chat-message">
+                                    {{ item.content }}
+                                </div>
+                            </li>
+                        }
+                    }
+                }
+                <li class="chat-loading">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle fill="#1670C0" stroke="#1670C0" stroke-width="8" r="15" cx="40" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.4"></animate></circle><circle fill="#1670C0" stroke="#1670C0" stroke-width="8" r="15" cx="100" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="-.2"></animate></circle><circle fill="#1670C0" stroke="#1670C0" stroke-width="8" r="15" cx="160" cy="65"><animate attributeName="cy" calcMode="spline" dur="2" values="65;135;65;" keySplines=".5 0 .5 1;.5 0 .5 1" repeatCount="indefinite" begin="0"></animate></circle></svg>
+                </li> 
+            </ul>
+        </div>
+
+
+        @if(messages.length < 1){
+            <div class="chat-suggestions" id="chat-suggestions">
+                @if(tipoChat == 'Cronograma') {
+                    <button (click)="sendMessagePreDefine('Quais os temas das palestras?')" class="chat-suggestion">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M21.9583 9.15073C22.0242 9.05995 22.1002 8.97654 22.1713 8.88984C22.9309 7.96378 22.2966 6.5 21.0613 6.5H15.2184C14.8071 6.5 14.4156 6.67956 14.143 6.99316L9.8632 13.5701C9.04342 14.5134 9.70135 16 10.9386 16H11.2073C12.3668 16 13.0293 17.3141 12.4073 18.2649C12.3559 18.3435 12.3062 18.424 12.2705 18.5109L10.1243 23.7403C10.053 23.9141 9.94382 24.0717 9.87585 24.2468C9.65341 24.8198 10.0579 25.5 10.7197 25.5C10.8911 25.5 11.0589 25.4504 11.2036 25.357L20.0208 18.2752C21.0454 17.6138 20.5851 16 19.3718 16C18.3094 16 17.7737 14.7172 18.4728 13.939C18.5103 13.8973 18.5478 13.8552 18.5807 13.8098L21.9583 9.15073Z" stroke="#1670C0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p>
+                            Quais os temas das palestras?
+                        </p>
+                    </button>
+
+                    <button (click)="sendMessagePreDefine('Qual o endereço do evento?')" class="chat-suggestion">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M21.9583 9.15073C22.0242 9.05995 22.1002 8.97654 22.1713 8.88984C22.9309 7.96378 22.2966 6.5 21.0613 6.5H15.2184C14.8071 6.5 14.4156 6.67956 14.143 6.99316L9.8632 13.5701C9.04342 14.5134 9.70135 16 10.9386 16H11.2073C12.3668 16 13.0293 17.3141 12.4073 18.2649C12.3559 18.3435 12.3062 18.424 12.2705 18.5109L10.1243 23.7403C10.053 23.9141 9.94382 24.0717 9.87585 24.2468C9.65341 24.8198 10.0579 25.5 10.7197 25.5C10.8911 25.5 11.0589 25.4504 11.2036 25.357L20.0208 18.2752C21.0454 17.6138 20.5851 16 19.3718 16C18.3094 16 17.7737 14.7172 18.4728 13.939C18.5103 13.8973 18.5478 13.8552 18.5807 13.8098L21.9583 9.15073Z" stroke="#1670C0" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p>
+                            Qual o endereço do evento?
+                        </p>
+                    </button>
+                }
+            </div>
+        }
+        <form [formGroup]="formChat" (ngSubmit)="sendMessage()" class="chat-send">
+            <input type="text" class="chat-send__input" id="chat-input" placeholder="{{placeholder}}" formControlName="chatInput"/>
+            <button type="submit" alt="Enviar mensagem" [disabled]="!formChat.valid">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                    <mask id="mask0_235_2649" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="24">
+                      <rect x="0.5" width="24" height="24" fill="#D9D9D9"/>
+                    </mask>
+                    <g mask="url(#mask0_235_2649)">
+                      <path d="M19.223 12.8385L5.2655 18.723C4.96417 18.8435 4.67792 18.8176 4.40675 18.6453C4.13558 18.4728 4 18.2224 4 17.8943V6.10576C4 5.7776 4.13558 5.52726 4.40675 5.35476C4.67792 5.18243 4.96417 5.15651 5.2655 5.27701L19.223 11.1615C19.5948 11.3257 19.7807 11.6052 19.7807 12C19.7807 12.3948 19.5948 12.6743 19.223 12.8385ZM5.5 17L17.35 12L5.5 7.00001V10.6923L10.923 12L5.5 13.3078V17Z" fill="white"/>
+                    </g>
+                </svg>
+            </button>
+        </form>
+    </div>
+</section>

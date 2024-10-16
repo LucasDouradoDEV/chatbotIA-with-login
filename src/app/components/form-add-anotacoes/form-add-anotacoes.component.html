@@ -1,0 +1,33 @@
+<span class="snackbar" id="snackbar">
+    <div class="snackbar__content">
+        <div class="snackbar-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 15.9583V11.2083M12 9.22917V8.04167M4.875 12C4.875 15.935 8.06497 19.125 12 19.125C15.935 19.125 19.125 15.935 19.125 12C19.125 8.06497 15.935 4.875 12 4.875C8.06497 4.875 4.875 8.06497 4.875 12Z" stroke="#1670C0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="snackbar-text">
+            <p>
+                {{pushNotificationText}}
+            </p>
+        </div>
+    </div>
+</span>
+
+<div class="form-login">
+    <div class="form-login__container">        
+        <div class="form-login__header">
+            <p class="page-text">
+                Inserir Anotação
+            </p>
+        </div>
+        <div class="form-login__content">
+            <form [formGroup]="formAddAnotacao" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <textarea title="Anotação" id="anotacao" formControlName="anotacao"></textarea>
+                </div>
+                <button class="btn btn-primary" type="submit" [disabled]="!formAddAnotacao.valid">Salvar Anotação</button>
+            </form>
+        </div>
+
+    </div>
+</div>
