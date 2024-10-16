@@ -2,11 +2,10 @@ import { NgFor } from '@angular/common';
 import { Component, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import gsap from 'gsap';
+
 import { GetChat } from '../../core/helpers/getChat';
 import { ChatInteractive } from '../../core/services/ChatInteractive';
-import { GetChatId } from '../../core/helpers/getChatId';
 import { GetUser } from '../../core/utils/getUser';
-import { LocalStorageApp } from '../../core/utils/LocalStorage';
 
 @Component({
   selector: 'app-chat',
@@ -85,15 +84,11 @@ export class ChatComponent implements AfterViewInit{
 
     let itemMsg = {
       id: this.messages.length + 1,
-      chatId: await GetChatId.getChat(this.tipoChat),
+      chatId: this.tipoChat,
       userId: await GetUser.getField('id'),
       role: "user",
       content: this.msgInput
     }
-
-
-
-    //this.messages.push(itemMsg)
 
     this.scrollToBottom();
 
@@ -112,9 +107,8 @@ export class ChatComponent implements AfterViewInit{
   async sendMessageChat() {
 
     console.log('ChatInteractive::SendChatExample')
+
     try {
-      
-      // let responseBot = await ChatInteractive.sendChatExample(this.tipoChat);
 
       let responseBot = await ChatInteractive.sendChat(this.tipoChat, this.msgInput);
       

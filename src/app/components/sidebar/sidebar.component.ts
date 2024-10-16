@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { LogoutApp } from '../../core/utils/Logout';
-import { CheckDate } from '../../core/helpers/dateEvent';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,8 +13,6 @@ export class SidebarComponent {
   @Input() title : string = '';
   
   sidebarMenuOpen: boolean = false;
-  
-  eventDate = CheckDate.eventDate();
 
   handleSidebar() {
     const sidebar = document.querySelector('.sidebar-menu');

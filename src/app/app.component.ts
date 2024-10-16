@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CheckLogin } from './core/helpers/CheckLogin';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +9,5 @@ import { CheckLogin } from './core/helpers/CheckLogin';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'application';
-
-  async ngAfterViewInit() {
-    // const login = await CheckLogin.getToken()
-  }
+  title = 'chatbot-temp';
 }

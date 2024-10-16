@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormSignupComponent } from "../../components/form-signup/form-signup.component";
-import { LogoSummitComponent } from '../../components/logo-summit/logo-summit.component';
-import { LogoSenaiComponent } from '../../components/logo-senai/logo-senai.component';
+import { LogoMarcaComponent } from '../../components/logo-marca/logo-marca.component';
+import { LogoPrincipalComponent } from '../../components/logo-principal/logo-principal.component';
 
 @Component({
   selector: 'app-create',
   standalone: true,
-  imports: [FormSignupComponent,LogoSummitComponent, LogoSenaiComponent],
+  imports: [FormSignupComponent,LogoMarcaComponent, LogoPrincipalComponent],
   templateUrl: './create.component.html',
   styleUrl: './create.component.scss'
 })

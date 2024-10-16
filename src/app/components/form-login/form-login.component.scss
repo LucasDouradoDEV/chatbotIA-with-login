@@ -59,20 +59,6 @@
         }
     }
 
-    .form-login__politica {
-        margin-top: 20px;
-        display: block;
-        text-align: center;
-
-        a {
-            text-align: center;
-            text-decoration: none;
-        
-            color: $newton-white;
-            font-size: 12px;
-            line-height: 1.2em;
-        }
-    }
 }
 
 .snackbar {
@@ -83,39 +69,48 @@
     opacity: 0;
     transition: .3s ease all;
 
-.snackbar__content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    width: 320px;
-    padding: 8px;
-    
-    margin: 0 auto;
-    border-left: 4px solid #1670C0;
-    background: #EEF7FC;
+    .snackbar__content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        width: 320px;
+        padding: 8px;
+        
+        margin: 0 auto;
+        border-left: 4px solid #1670C0;
+        background: #EEF7FC;
 
-}
+    }
 
-.snackbar-icon {
+    .snackbar-icon {
 
-    svg {
-        display: block;
-        width: 24px;
-        height: 24px;
+        svg {
+            display: block;
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .snackbar-text {
+        flex: 1;
+
+        p {
+            width: 100%;
+            color: #5D677D;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.2em;
+            margin: 0;
+        }
     }
 }
 
-.snackbar-text {
-    flex: 1;
-
-    p {
-        width: 100%;
-        color: #5D677D;
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 1.2em;
-        margin: 0;
-    }
-}
+.text-note {
+    text-align: center;
+    margin: 12px 0 0 0;
+    color: $newton-white;
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
 }

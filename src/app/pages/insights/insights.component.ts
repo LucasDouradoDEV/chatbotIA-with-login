@@ -60,9 +60,9 @@ export class InsightsComponent {
   }
 
   async main() {
-    setInterval(async () => {
-      this.listInsights = await GetInsightDatabase.get()
-      // console.log("ListInsights::Refresh")
-    }, 2000);
+    // atualização de dados de insight a cada 2s
+    // setInterval(async () => {
+    //   this.listInsights = await GetInsightDatabase.get()
+    // }, 2000);
   }
 }

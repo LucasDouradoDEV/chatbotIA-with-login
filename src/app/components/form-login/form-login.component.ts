@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthLogin } from '../../core/auth/Auth';
 import { gsap } from 'gsap';
-import { CheckDate } from '../../core/helpers/dateEvent';
 
 
 
@@ -31,21 +30,24 @@ export class FormLoginComponent implements AfterViewInit {
 
   async onSubmit() {
     if(this.formLogin.value.email) {
-      const checkLogin = await AuthLogin.Login(this.formLogin.value.email)
 
-      if(checkLogin == "Logado com sucesso") {
-        let eventToday = CheckDate.eventDate()
+      try{
+        // Autenticação de usuário (inativo no momento)
+        const checkLogin = await AuthLogin.Login(this.formLogin.value.email)
 
-        if(eventToday != "Before") {
+        if(checkLogin == "Logado com sucesso") {
           this.router.navigate(['/']);
-        }else{
-          this.router.navigate(['/cronograma']);
+
+          this.pushNotificationText = checkLogin
+        }else {
+            console.log(checkLogin)
+            this.pushNotificationText = "Erro ao efetuar login..."
+            this.startAnimationNotification()
         }
+      } catch(error) {
+        console.error("Erro ao efetuar login:", error)
 
-        this.pushNotificationText = checkLogin
-      }else {
-
-        this.pushNotificationText = checkLogin
+        this.pushNotificationText = "Erro ao efetuar login..."
         this.startAnimationNotification()
       }
     }
